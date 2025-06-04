@@ -1,19 +1,23 @@
 public class Menu {
     public static void exibirMenu() {
         System.out.println("""
-        **********************************************
-        Sea bienvenido/a al Conversor de Moneda =]
+        ==================================================
+        ¡Hola! Bienvenido a la Casa de Cambio de ESCOM 😉
 
-        1) Dólar           => Peso argentino
-        2) Peso argentino  => Dólar
-        3) Dólar           => Real brasileño
-        4) Real brasileño  => Dólar
-        5) Dólar           => Peso colombiano
-        6) Peso colombiano => Dólar
-        7) Salir
+        Esta plataforma te permite realizar conversiones 
+        entre distintas divisas. Ideal si eres extranjero 
+        o estás planeando un viaje de intercambio.
 
-        Elija una opción válida:
-        **********************************************
+        Por favor, selecciona una opción del menú:
+
+        1) Mostrar divisas disponibles
+        2) Convertir de pesos mexicanos a otra divisa
+        3) Convertir de una divisa extranjera a pesos mexicanos
+        4) Convertir entre dos divisas extranjeras
+        5) Salir del programa
+
+        Ingresa el número de la opción deseada:
+        ==================================================
         """);
     }
 }

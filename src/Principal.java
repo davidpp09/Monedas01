@@ -23,12 +23,12 @@ public class Principal {
 
     public static void conver(int opcion, int cantidad) {
         switch (opcion) {
-            case 1 -> Peticiones.conversion("USD", "ARS", cantidad);
-            case 2 -> Peticiones.conversion("ARS", "USD", cantidad);
-            case 3 -> Peticiones.conversion("USD", "BRL", cantidad);
-            case 4 -> Peticiones.conversion("BRL", "USD", cantidad);
-            case 5 -> Peticiones.conversion("USD", "COP", cantidad);
-            case 6 -> Peticiones.conversion("COP", "USD", cantidad);
+            case 1 -> Peticiones.conversionDeDivisas("USD", "ARS", cantidad);
+            case 2 -> Peticiones.conversionDeDivisas("ARS", "USD", cantidad);
+            case 3 -> Peticiones.conversionDeDivisas("USD", "BRL", cantidad);
+            case 4 -> Peticiones.conversionDeDivisas("BRL", "USD", cantidad);
+            case 5 -> Peticiones.conversionDeDivisas("USD", "COP", cantidad);
+            case 6 -> Peticiones.conversionDeDivisas("COP", "USD", cantidad);
         }
     }
 }
