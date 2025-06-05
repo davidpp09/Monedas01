@@ -7,8 +7,8 @@ import java.net.http.HttpResponse;
 
 public class Peticiones {
     private static final String DIRECCION = "https://v6.exchangerate-api.com/v6/9eba1af4a93f08adc5bed564/pair/";
-    private static final String DESPEDIDA = "Gracias por cambiar con nosotros,";
-    public static void api(String direccion){
+    private static final String DESPEDIDA = "Gracias por cambiar con nosotros";
+    public static Record api(String direccion){
         try {
             Gson gson = new Gson();
             HttpClient client = HttpClient.newHttpClient();
@@ -18,36 +18,26 @@ public class Peticiones {
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            ResConversiones data = gson.fromJson(response.body(), ResConversiones.class);
-
-            System.out.printf("son %.2f %s\n",
-                    data.conversion_result(),
-                    data.target_code()
-            );
+          return gson.fromJson(response.body(), ResConversiones.class);
 
         } catch (Exception e) {
             System.out.println("❌ Error durante la conversión: " + e.getMessage());
+            return null;
         }
     }
     public static void conversionDeDivisas(String v1, String v2, int cantidad) {
         String direccion = DIRECCION + v1 + "/" + v2 + "/" + cantidad;
-        System.out.println(v1 +" "+cantidad);
-        api(direccion);
+        ResConversiones data = (ResConversiones) api(direccion);
+        System.out.printf("%d %s son %.2f %s\n",
+                cantidad,
+                data.base_code(),
+                data.conversion_result(),
+                data.target_code()
+        );
         System.out.println(DESPEDIDA);
 
     }
-    public void conversionDemxn(String dv, int cantidad){
-        String direccion = DIRECCION + "MXN/" + dv +"/"+cantidad;
-        api(direccion);
-        System.out.println(DESPEDIDA+"que tengas un buen viaje, Exito :)");
-    }
-    public void conversionDeamxn(String dv, int cantidad){
-        String direccion = DIRECCION + dv + "/MXN/" + cantidad;
-        System.out.println(DESPEDIDA+"Esperemos que tengas una buena estancia en la escuela :)");
-    }
-    public void divisasDisponibles(){
-        String direccion = "https://v6.exchangerate-api.com/v6/9eba1af4a93f08adc5bed564/latest/USD";
-        api(direccion);
-    }
+
+
 }
 
