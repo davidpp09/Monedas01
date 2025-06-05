@@ -24,7 +24,7 @@ Este proyecto es un sistema de conversión de divisas desarrollado en Java, con 
 4. Convertir entre dos divisas extranjeras
 5. Salir del programa
 6. Ver historial de conversiones
-
+9. Comparar dos conversiones manuales (modo prueba)
 
 ---
 
@@ -39,7 +39,7 @@ Este proyecto es un sistema de conversión de divisas desarrollado en Java, con 
 
 ## 🧩 Diagrama UML (Texto)
 
-
+```
 +--------------------------+
 |        Principal         |
 +--------------------------+
@@ -86,6 +86,6 @@ Este proyecto es un sistema de conversión de divisas desarrollado en Java, con 
 | -cantidad: double             |
 | +OperacionConversion(...)     |
 +-------------------------------+
+```
 
-
-
+---
