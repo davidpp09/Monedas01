@@ -14,6 +14,7 @@ public class Menu {
         2) Convertir de pesos mexicanos a otra divisa
         3) Convertir de una divisa extranjera a pesos mexicanos
         4) Convertir entre dos divisas extranjeras
+        6) Mostrar el historial de cambios de divisas
         5) Salir del programa
 
         Ingresa el número de la opción deseada:

@@ -5,7 +5,6 @@ public class Principal {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         int opcion;
-
         do {
             Menu.exibirMenu();
             opcion = entrada.nextInt();
@@ -37,6 +36,7 @@ public class Principal {
                     Peticiones.conversionDeDivisas(origen, destino, cantidad);
                 }
                 case 5 -> System.out.println("¡Hasta luego!");
+                case 6 -> Peticiones.mostrarHistorial();
                 default -> System.out.println("Opción inválida. Intenta de nuevo.");
             }
 

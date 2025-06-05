@@ -4,10 +4,15 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Peticiones {
     private static final String DIRECCION = "https://v6.exchangerate-api.com/v6/9eba1af4a93f08adc5bed564/pair/";
     private static final String DESPEDIDA = "Gracias por cambiar con nosotros";
+    public static List<ResConversiones> historial = new ArrayList<>();
+
     public static Record api(String direccion){
         try {
             Gson gson = new Gson();
@@ -28,14 +33,18 @@ public class Peticiones {
     public static void conversionDeDivisas(String v1, String v2, int cantidad) {
         String direccion = DIRECCION + v1 + "/" + v2 + "/" + cantidad;
         ResConversiones data = (ResConversiones) api(direccion);
-        System.out.printf("%d %s son %.2f %s\n",
-                cantidad,
-                data.base_code(),
-                data.conversion_result(),
-                data.target_code()
-        );
+        Random random = new Random();
+        int idOperacion = random.nextInt(1000); // Genera ID aleatorio de 0 a 999
+        System.out.println("🔄 ID de operación: #" + idOperacion);
+        System.out.printf("✅ %d %s%n", cantidad, data.toString());
         System.out.println(DESPEDIDA);
-
+        historial.add(data);
+    }
+    public static void mostrarHistorial() {
+        System.out.println("📜 Historial de conversiones:");
+        for (ResConversiones r : historial) {
+            System.out.println(r); // usa el toString automático
+        }
     }
 
 
